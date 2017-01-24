@@ -7,4 +7,10 @@ We will use a subset of Haskell with no modules, no foreign functions, no commen
 * *program* -> { *lexeme* | *whitespace* }
 * *whitespace* -> *whitestuff* { *whitestuff* }
 * *whitestuff* -> any whitespace character (newline, space, tab, etc.)
-* *lexeme* ->
+* *lexeme* -> *varid* | *conid* | *varsym* | *consym* | *literal* | *special* | *reservedop* | *reservedid*
+* *literal* -> *integer* | *float* | *char* | *string*
+* *special* -> ( | ) | , | ; | [ | ] | ` | { | }
+* *varid* -> ( *small* { *small* | *large* | *digit* | ' })_(*reservedid*)
+* *conid* -> *large* { *small* | *large* | *digit* | ' }
+* *reservedid* -> case | class | data | default | deriving | do | else | if | in | infix | infixl | infixr | instance | let | newtype | of | then | type | where | _
+
