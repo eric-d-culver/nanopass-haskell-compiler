@@ -10,11 +10,11 @@ We will use a subset of Haskell with no modules, no foreign functions, no commen
 * *lexeme* -> *varid* | *conid* | *varsym* | *consym* | *literal* | *special* | *reservedop* | *reservedid*
 * *literal* -> *integer* | *float* | *char* | *string*
 * *special* -> ( | ) | , | ; | [ | ] | ` | { | }
-* *varid* -> ( *small* { *small* | *large* | *digit* | ' })_(*reservedid*)
+* *varid* -> *small* { *small* | *large* | *digit* | ' } not *reservedid*
 * *conid* -> *large* { *small* | *large* | *digit* | ' }
 * *reservedid* -> case | class | data | default | deriving | do | else | if | in | infix | infixl | infixr | instance | let | newtype | of | then | type | where | _
-* *varsym* -> ( *symbol*_(:) { *symbol* })_(*reservedop*)
-* *consym* -> (: { *symbol* })_(*reservedop*)
+* *varsym* -> *symbol*_(:) { *symbol* } not *reservedop*
+* *consym* -> : { *symbol* } not *reservedop*
 * *reservedop* -> .. | : | :: | = | \ | | | <- | -> | @ | ~ | =>
 * *small* -> lowercase characters
 * *large* -> uppercase characters
