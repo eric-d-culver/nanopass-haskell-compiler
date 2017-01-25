@@ -10,11 +10,19 @@ We will use a subset of Haskell with no modules, no foreign functions, no commen
 * *lexeme* -> *varid* | *conid* | *varsym* | *consym* | *literal* | *special* | *reservedop* | *reservedid*
 * *literal* -> *integer* | *float* | *char* | *string*
 * *special* -> ( | ) | , | ; | [ | ] | ` | { | }
-* *varid* -> *small* { *small* | *large* | *digit* | ' } not *reservedid*
-* *conid* -> *large* { *small* | *large* | *digit* | ' }
+* *tyvar* -> *varid* (type variables)
+* *tycon* -> *conid* (type constructors)
+* *tycls* -> *conid* (type classes)
+* *varid* -> *small* { *small* | *large* | *digit* | ' } not *reservedid* (variables)
+* *conid* -> *large* { *small* | *large* | *digit* | ' } (constructors)
 * *reservedid* -> case | class | data | default | deriving | do | else | if | in | infix | infixl | infixr | instance | let | newtype | of | then | type | where | _
 * *varsym* -> *symbol*_(:) { *symbol* } not *reservedop*
 * *consym* -> : { *symbol* } not *reservedop*
 * *reservedop* -> .. | : | :: | = | \ | | | <- | -> | @ | ~ | =>
+* *float* -> *decimal* . *decimal* [*exponent*]
+* *exponent* -> (e | E) [+ | -] *decimal*
+* *integer* -> *decimal*
+* *decimal* -> *digit* { *digit* }
 * *small* -> lowercase characters
 * *large* -> uppercase characters
+* *digit* -> digits
