@@ -3,7 +3,7 @@ Compiler for Haskell using the idea of many simple passes
 
 We will use a subset of Haskell with no modules, no foreign functions, no comments, and no indentation.  This is to simplify the project.  In the future, a pass which will strip out comments, and a pass which will convert the indented form of code to the non-indented form will be added. Adding in modules and foreign functions may be more difficult.
 
-# Syntax
+# Lexical Syntax
 * *program* -> { *lexeme* | *whitespace* }
 * *whitespace* -> *whitestuff* { *whitestuff* }
 * *whitestuff* -> any whitespace character (newline, space, tab, etc.)
@@ -26,3 +26,9 @@ We will use a subset of Haskell with no modules, no foreign functions, no commen
 * *small* -> lowercase characters
 * *large* -> uppercase characters
 * *digit* -> digits
+* *char* -> '*graphic*_('|\) | *space* | *escape*_(\&)'
+* *string* -> "{*graphic*_("|\) | *space* | *escape* | *gap*}"
+* *escape* -> \*charesc* | *decimal* | o *octal* | x *hexadecimal*
+* *charesc* -> a | b | f | n | r | t | v | \ | " | ' | &
+* *cntrl* -> *large* | @ | [ | \ | ] | ^ | _
+* *gap* -> \ *whitechar* {*whitechar*} \
