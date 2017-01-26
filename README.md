@@ -40,6 +40,10 @@ The compiler will consist of many small passes over the code. Each pass will mak
 
 2. Parser1, sorts code into blocks
 
-2. Parser2, disambiguates fixity
+2. Parser2, disambiguates operators by fixity
 
-3. Other passes
+3. Other passes, continuing to build up the syntax tree
+
+4. Desugar1, desugars list ranges
+
+5. Desugar2, desugars list comprehension
