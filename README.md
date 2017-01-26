@@ -35,6 +35,11 @@ We will use a subset of Haskell with no modules, no foreign functions, no commen
 
 # Basic Idea
 The compiler will consist of many small passes over the code. Each pass will make small changes.
+
 1. Lexer, breaks code into lexical units
-2. Parser, converts stream of lexical units into tree
+
+2. Parser1, sorts code into blocks
+
+2. Parser2, disambiguates fixity
+
 3. Other passes
