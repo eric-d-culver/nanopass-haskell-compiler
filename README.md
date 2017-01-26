@@ -23,12 +23,18 @@ We will use a subset of Haskell with no modules, no foreign functions, no commen
 * *exponent* -> (e | E) [+ | -] *decimal*
 * *integer* -> *decimal*
 * *decimal* -> *digit* { *digit* }
+* *char* -> '*graphic*_('|\) | *space* | *escape*_(\&)'
+* *string* -> "{*graphic*_("|\) | *space* | *escape* |}"
+* *escape* -> \*charesc* | *decimal*
+* *charesc* -> a | b | f | n | r | t | v | \ | " | ' | &
+* *graphic* -> *small* | *large* | *symbol* | *digit* | *special* | " | '
 * *small* -> lowercase characters
 * *large* -> uppercase characters
+* *space* -> a space
 * *digit* -> digits
-* *char* -> '*graphic*_('|\) | *space* | *escape*_(\&)'
-* *string* -> "{*graphic*_("|\) | *space* | *escape* | *gap*}"
-* *escape* -> \*charesc* | *decimal* | o *octal* | x *hexadecimal*
-* *charesc* -> a | b | f | n | r | t | v | \ | " | ' | &
-* *cntrl* -> *large* | @ | [ | \ | ] | ^ | _
-* *gap* -> \ *whitechar* {*whitechar*} \
+
+# Basic Idea
+The compiler will consist of many small passes over the code. Each pass will make small changes.
+1. Lexer, breaks code into lexical units
+2. Parser, converts stream of lexical units into tree
+3. Other passes
